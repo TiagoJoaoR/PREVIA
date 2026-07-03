@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.vite/
+# IFC models são pesados; não versionar por padrão
+*.frag
+.playwright-mcp/
+ifcMCP/
