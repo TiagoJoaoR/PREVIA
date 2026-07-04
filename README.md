@@ -145,7 +145,16 @@ importantes (como instalar o Node) — quando pedir, é só responder **sim**.
 
 ## Módulo PRÉVIA (Look-Ahead)
 
-O módulo PRÉVIA estende o viewer com planeamento semanal (W+1 a W+4):
+O módulo PRÉVIA estende o viewer com planeamento semanal (W+1 a W+4) e faz uso de
+**Inteligência Artificial via API da OpenAI (gpt-4o-mini)** para gerar automaticamente
+checklists preditivas, recomendações de planeamento e copiloto de cobrança.
+
+> A chave da API OpenAI **não está incluída no código** — o utilizador configura a sua
+> própria chave no campo "Chave da API OpenAI" visível no topo do módulo PRÉVIA. A
+> chave fica armazenada apenas no `localStorage` do navegador e nunca é enviada para
+> nenhum servidor além da própria API da OpenAI.
+
+Funcionalidades:
 
 - **Kanban** com cartões por semana construtiva e semáforo de restrições
 - **Checklist preditiva** gerada por IA (OpenAI) para cada tarefa
