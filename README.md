@@ -1,12 +1,27 @@
-# ifc4all — Viewer 4D para Modelos IFC
+# PRÉVIA — O obstáculo, previsto a tempo
 
-Visualizador web de modelos **IFC** (BIM) com cronograma **4D** integrado. Carrega
-um arquivo `.ifc`, extrai as datas de início/fim dos elementos construtivos e exibe
+> **Projeto Académico** — Módulo Planejamento e Gestão de Obras com IA
+> Pós-Graduação em Inteligência Artificial Aplicada à Engenharia e Arquitetura
+> **Faculdade EBPós**
+
+Plataforma de visualização de modelos **IFC** (BIM) com cronograma **4D** integrado e
+módulo de planeamento **Look-Ahead** com checklist preditiva por IA. Carrega um
+arquivo `.ifc`, extrai as datas de início/fim dos elementos construtivos e exibe
 um gráfico de Gantt interativo — similar ao MS Project, mas conectado diretamente ao
 modelo 3D.
 
-Construído com [That Open Components](https://github.com/ThatOpen/engine) (engine
+Construído sobre o [That Open Components](https://github.com/ThatOpen/engine) (engine
 open-source de BIM em JavaScript/TypeScript).
+
+### Créditos
+
+Este projeto teve como base o repositório
+[**ifc4all — Viewer 4D para Modelos IFC**](https://github.com/bicalhobim/ifc4all)
+de [lucasbicalho90](https://github.com/lucasbicalho90), adaptado e estendido no
+contexto académico da Pós-Graduação em IA Aplicada à Engenharia e Arquitetura da
+Faculdade EBPós.
+
+---
 
 > **Você é aluno e nunca programou?** Sem problema. Este projeto foi feito para você
 > **não precisar** digitar comandos técnicos. Você vai instalar duas ferramentas,
@@ -21,7 +36,7 @@ open-source de BIM em JavaScript/TypeScript).
 2. Instalar o **Node.js** (o motor que o projeto usa).
 3. Baixar este projeto do GitHub.
 4. Abrir o projeto no OpenCode e **colar a frase mágica** (a "MISSÃO").
-5. Usar o viewer no navegador.
+5. Usar o PRÉVIA no navegador.
 
 Leva ~10 minutos na primeira vez.
 
@@ -54,14 +69,14 @@ Leva ~10 minutos na primeira vez.
 Escolha **uma** das duas formas:
 
 **Opção A — Baixar o ZIP (mais simples):**
-1. Acesse **https://github.com/bicalhobim/ifc4all**
+1. Acesse **https://github.com/TiagoJoaoR/PREVIA**
 2. Clique no botão verde **`< > Code`** e depois em **Download ZIP**.
 3. Salve e **extraia** o ZIP (botão direito → "Extrair tudo").
-4. Você terá uma pasta `ifc4all` com `viewer/`, `ifc_model/`, etc.
+4. Você terá uma pasta `PREVIA-master` (ou similar) com `viewer/`, `ifc_model/`, etc.
 
 **Opção B — Clonar via git (se souber usar):**
 ```bash
-git clone https://github.com/bicalhobim/ifc4all.git
+git clone https://github.com/TiagoJoaoR/PREVIA.git
 ```
 
 ---
@@ -69,9 +84,8 @@ git clone https://github.com/bicalhobim/ifc4all.git
 ## PASSO 3 — Abrir no OpenCode e rodar (a parte mágica)
 
 1. Abra o **OpenCode Desktop**.
-2. Clique em **Open Folder** (Abrir Pasta) e selecione a pasta **`ifc4all`**
-   (a pasta raiz do projeto — a que contém `viewer/`, `ifc_model/` e o arquivo
-   `agente.md`).
+2. Clique em **Open Folder** (Abrir Pasta) e selecione a pasta do projeto
+   (a pasta raiz — a que contém `viewer/`, `ifc_model/` e o arquivo `agente.md`).
 3. Na barra de chat do OpenCode, **cole exatamente a frase abaixo** e aperte
    **Enter**:
 
@@ -102,8 +116,7 @@ importantes (como instalar o Node) — quando pedir, é só responder **sim**.
 
 ## PASSO 4 — Carregar um modelo IFC
 
-1. Na tela do viewer, clique em **"Carregar arquivo"** (ou arraste um `.ifc` para a
-   janela).
+1. Na tela do PRÉVIA, clique em **"Importar IFC"** (ícone de upload).
 2. Escolha um modelo da pasta `ifc_model/` do projeto — por exemplo
    **`TORRE02_ESTRUTURA_4D.ifc`**.
 3. Aguarde o processamento: o modelo 3D aparece e o Gantt 4D é gerado
@@ -124,17 +137,24 @@ importantes (como instalar o Node) — quando pedir, é só responder **sim**.
 | **Selecionar um elemento** | Clique nele no modelo 3D ou na árvore espacial |
 | **Navegar no cronograma** | Arraste o *scrubber* (barra de tempo) no Gantt |
 | **Ocultar elementos** | Ao mover o scrubber, o que ainda não começou fica oculto |
+| **Abrir o módulo PRÉVIA** | Clique no botão **P** (preto) na barra superior |
+| **Gerar checklist preditiva** | No módulo PRÉVIA, clique em "Gerar Checklist Preditiva" |
+| **Registar contacto** | No modal de restrições, preencha nome + e-mail do responsável |
 
 ---
 
-## Modelos de exemplo incluídos
+## Módulo PRÉVIA (Look-Ahead)
 
-Na pasta `ifc_model/` já vêm modelos prontos, com as datas de cronograma
-pré-processadas (por isso o Gantt aparece preenchido):
+O módulo PRÉVIA estende o viewer com planeamento semanal (W+1 a W+4):
 
-- `TORRE01_ESTRUTURA_4D.ifc`, `TORRE02_ESTRUTURA_4D.ifc`, `TORRE03_ESTRUTURA_4D.ifc`
-- `TERRENO_INFRA_4D.ifc`
-- `CANTEIRO_TEMPORARIO_4D.ifc`
+- **Kanban** com cartões por semana construtiva e semáforo de restrições
+- **Checklist preditiva** gerada por IA (OpenAI) para cada tarefa
+- **Atribuição de responsáveis** com notificação por e-mail (mailto:)
+- **Guia de remessa** e controle de materiais
+- **Motor de alertas** para prazos vencidos e restrições bloqueadas
+- **PPC** (Percentual de Planeamento Concluído) com histórico
+- **Copiloto de Cobrança** inteligente com transcrição de áudio
+- **Visão do Mestre** para aprovação e relatório de campo
 
 ---
 
@@ -156,7 +176,7 @@ de `viewer/`**:
 ## Estrutura do projeto
 
 ```
-ifc4all/
+PREVIA/
 ├── agente.md               # Roteiro que o OpenCode lê e executa (a "MISSÃO")
 ├── README.md               # Este guia
 ├── ifc_model/              # Modelos IFC de exemplo (4D)
@@ -167,11 +187,19 @@ ifc4all/
 │   │   │   ├── app.ts      # Setup do viewer 3D
 │   │   │   └── schedule.ts # Extração de datas do IFC
 │   │   ├── ui/
+│   │   │   ├── login.ts    # Tela de login com Google
 │   │   │   ├── gantt.ts    # Componente Gantt
 │   │   │   ├── shell.ts    # Layout da interface
 │   │   │   ├── tree.ts     # Árvore espacial do modelo
 │   │   │   └── properties.ts # Painel de propriedades
+│   │   ├── lookahead-module/ # Módulo PRÉVIA (Look-Ahead)
+│   │   │   ├── components/ # Kanban, Restrições, Visão do Mestre, etc.
+│   │   │   ├── store/      # LocalStorage e contactos
+│   │   │   ├── utils/      # DataAdapter e AI Connectors
+│   │   │   ├── lookahead.ts    # Orquestrador do módulo
+│   │   │   └── lookahead.css   # Estilos específicos
 │   │   └── main.ts         # Ponto de entrada
+│   ├── public/fonts/       # Sifonn Basic Outline (logótipo)
 │   ├── index.html
 │   ├── package.json
 │   └── vite.config.ts
@@ -196,3 +224,5 @@ ifc4all/
 ## Licença
 
 Material didático — uso educacional. Todos os direitos reservados aos autores.
+
+*Baseado no [ifc4all](https://github.com/bicalhobim/ifc4all) de lucasbicalho90, licenciado sob os mesmos termos.*
