@@ -21,7 +21,12 @@ de [lucasbicalho90](https://github.com/lucasbicalho90), adaptado e estendido no
 contexto académico da Pós-Graduação em IA Aplicada à Engenharia e Arquitetura da
 Faculdade EBPós.
 
-**Autoria do módulo PRÉVIA:** [TiagoJoaoR](https://github.com/TiagoJoaoR)
+**Projeto final do Módulo Planejamento e Gestão de Obras com IA.**
+
+**Equipa:**
+- [TiagoJoaoR](https://github.com/TiagoJoaoR)
+- Vanessa Machado
+- Vitor Costa
 
 **Assistente de desenvolvimento:** [OpenCode](https://opencode.ai) (agente de IA
 autónomo) — responsável pela implementação do código, debugging e suporte durante
