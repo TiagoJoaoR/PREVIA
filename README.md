@@ -28,15 +28,16 @@ Faculdade EBPós.
 - Vanessa Machado
 - Vitor Costa
 
-**Assistente de desenvolvimento:** [OpenCode](https://opencode.ai) (agente de IA
-autónomo) — responsável pela implementação do código, debugging e suporte durante
-todo o ciclo de desenvolvimento.
+**Contribuidores técnicos (agentes de IA):**
+- [OpenCode](https://opencode.ai) (agente de IA autónomo) — implementação do código,
+  debugging e suporte durante todo o ciclo de desenvolvimento
 
 **Modelos de linguagem utilizados:**
 - **gpt-4o-mini** (OpenAI) — utilizado em runtime pelo módulo PRÉVIA para geração
   de checklists preditivas, copiloto de cobrança e recomendações de planeamento
-- **DeepSeek V4 Flash** — utilizado pelo OpenCode como motor de desenvolvimento
-  (coding agent) durante a construção do projeto
+- **DeepSeek V4 Flash** (modelo `opencode/deepseek-v4-flash-free`) — utilizado pelo
+  OpenCode como motor de desenvolvimento (coding agent) durante a construção do
+  projeto
 
 ---
 
