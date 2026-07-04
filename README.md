@@ -21,6 +21,18 @@ de [lucasbicalho90](https://github.com/lucasbicalho90), adaptado e estendido no
 contexto académico da Pós-Graduação em IA Aplicada à Engenharia e Arquitetura da
 Faculdade EBPós.
 
+**Autoria do módulo PRÉVIA:** [TiagoJoaoR](https://github.com/TiagoJoaoR)
+
+**Assistente de desenvolvimento:** [OpenCode](https://opencode.ai) (agente de IA
+autónomo) — responsável pela implementação do código, debugging e suporte durante
+todo o ciclo de desenvolvimento.
+
+**Modelos de linguagem utilizados:**
+- **gpt-4o-mini** (OpenAI) — utilizado em runtime pelo módulo PRÉVIA para geração
+  de checklists preditivas, copiloto de cobrança e recomendações de planeamento
+- **DeepSeek V4 Flash** — utilizado pelo OpenCode como motor de desenvolvimento
+  (coding agent) durante a construção do projeto
+
 ---
 
 > **Você é aluno e nunca programou?** Sem problema. Este projeto foi feito para você
