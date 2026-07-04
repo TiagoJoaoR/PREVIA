@@ -1,0 +1,327 @@
+/* ── Prévia ─────────────────────────────────────────────── */
+
+/* Back button */
+.bs-back-bar { margin-bottom: 8px; }
+.bs-back-btn {
+  padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: 1px solid #e5e7eb; background: #fff; color: #374151;
+  transition: all .15s; font-family: inherit;
+}
+.bs-back-btn:hover { background: #f3f4f6; }
+
+/* Overlay / Modal */
+.bs-modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,.45); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+}
+.bs-modal {
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+  width: 80%; max-width: 900px; max-height: 90vh;
+  display: flex; flex-direction: column;
+}
+.bs-modal-wide { max-width: 1100px; }
+.bs-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid #e5e7eb;
+}
+.bs-modal-title { margin: 0; font-size: 16px; font-weight: 700; color: #1f2937; }
+.bs-modal-close {
+  width: 32px; height: 32px; border-radius: 8px; font-size: 16px;
+  display: grid; place-items: center; cursor: pointer; border: none; background: none;
+}
+.bs-modal-close:hover { background: #f3f4f6; }
+.bs-modal-body { flex: 1; overflow: auto; padding: 20px; }
+.bs-modal-footer {
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding: 16px 20px; border-top: 1px solid #e5e7eb;
+}
+.bs-modal-info { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; font-size: 13px; color: #6b7280; }
+
+/* Restriction cards */
+.bs-restrictions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.bs-restriction-card {
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;
+  background: #f9fafb;
+}
+.bs-restriction-card-header { font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #374151; }
+.bs-recht-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.bs-recht-header .bs-restriction-card-header { margin-bottom: 0; }
+
+/* Status badge (auto-calculated) */
+.bs-status-badge {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 700; letter-spacing: .3px;
+  color: #fff;
+}
+.bs-status-verde { background: #22c55e; }
+.bs-status-amarelo { background: #eab308; color: #1f2937; }
+.bs-status-vermelho { background: #ef4444; }
+
+/* Checklist */
+.bs-checklist-container {
+  display: flex; flex-direction: column; gap: 8px;
+  max-height: 240px; overflow-y: auto; margin-bottom: 8px;
+}
+.bs-checklist-row {
+  border: 1px solid #e5e7eb; border-radius: 6px; padding: 8px;
+  background: #fff; display: flex; flex-direction: column; gap: 6px;
+  position: relative;
+}
+.bs-checklist-row > .bs-btn-danger {
+  position: absolute; top: 4px; right: 4px;
+  width: 22px; height: 22px; padding: 0; font-size: 10px;
+  display: grid; place-items: center;
+}
+.bs-checklist-desc {
+  width: 100%; border: 1px solid #e5e7eb; border-radius: 4px;
+  padding: 4px 6px; font-size: 12px; font-family: inherit;
+}
+.bs-checklist-meta {
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+}
+.bs-checklist-status {
+  padding: 2px 6px; border: 1px solid #e5e7eb; border-radius: 4px;
+  font-size: 11px; font-weight: 600; font-family: inherit;
+}
+.bs-checklist-prazo {
+  padding: 2px 6px; border: 1px solid #e5e7eb; border-radius: 4px;
+  font-size: 11px; font-family: inherit;
+}
+.bs-checklist-qty {
+  width: 60px; padding: 2px 6px; border: 1px solid #e5e7eb; border-radius: 4px;
+  font-size: 11px; font-family: inherit;
+}
+.bs-checklist-resp-nome, .bs-checklist-resp-email {
+  flex: 1; min-width: 80px; padding: 2px 6px; border: 1px solid #e5e7eb;
+  border-radius: 4px; font-size: 11px; font-family: inherit;
+}
+.bs-checklist-contacts {
+  padding: 2px 6px; border: 1px solid #e5e7eb; border-radius: 4px;
+  font-size: 11px; font-family: inherit;
+}
+.bs-checklist-guia, .bs-checklist-guia-data, .bs-checklist-manut-data {
+  padding: 2px 6px; border: 1px solid #e5e7eb; border-radius: 4px;
+  font-size: 11px; font-family: inherit; width: 100px;
+}
+.bs-checklist-label {
+  font-size: 11px; display: flex; align-items: center; gap: 4px;
+}
+.bs-checklist-notas {
+  flex: 1; min-width: 60px; padding: 2px 6px; border: 1px solid #e5e7eb;
+  border-radius: 4px; font-size: 11px; font-family: inherit;
+}
+
+/* Toggle group (legacy - kept for compatibility) */
+.bs-toggle-group { display: flex; gap: 6px; margin-bottom: 8px; }
+.bs-toggle-btn {
+  padding: 4px 12px; border: 2px solid; border-radius: 6px; font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all .15s; flex: 1;
+}
+.bs-toggle-btn:hover { opacity: .85; }
+.bs-justif-input {
+  width: 100%; min-height: 48px; border: 1px solid #e5e7eb; border-radius: 6px;
+  padding: 6px 8px; font-size: 12px; resize: vertical; font-family: inherit;
+}
+
+/* IA Panel */
+.bs-ia-panel {
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;
+  background: #f0f9ff; margin-top: 12px;
+}
+.bs-ia-header { font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #1e40af; }
+.bs-ia-output {
+  width: 100%; min-height: 80px; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 8px; font-size: 13px; resize: vertical; font-family: inherit;
+  background: #fff;
+}
+.bs-ia-actions { display: flex; gap: 8px; margin-top: 8px; }
+
+/* Tags */
+.bs-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600; letter-spacing: .3px;
+  background: #e5e7eb; color: #374151;
+}
+.bs-tag-green { background: #dcfce7; color: #166534; }
+
+/* Buttons */
+.bs-btn {
+  padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: 1px solid transparent; transition: all .15s;
+  font-family: inherit;
+}
+.bs-btn-primary { background: #2563eb; color: #fff; border-color: #2563eb; }
+.bs-btn-primary:hover { background: #1d4ed8; }
+.bs-btn-primary:disabled { opacity: .5; cursor: default; }
+.bs-btn-secondary { background: #fff; color: #374151; border-color: #e5e7eb; }
+.bs-btn-secondary:hover { background: #f3f4f6; }
+.bs-btn-danger { background: #ef4444; color: #fff; border-color: #ef4444; }
+.bs-btn-danger:hover { background: #dc2626; }
+.bs-btn-sm { padding: 4px 10px; font-size: 12px; }
+.bs-btn-lg { padding: 12px 24px; font-size: 15px; width: 100%; }
+.bs-btn-ghost { background: none; border-color: transparent; color: #6b7280; padding: 2px 6px; font-size: 12px; }
+.bs-btn-ghost:hover { background: #f3f4f6; }
+
+/* Config Header */
+.bs-config {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 12px 20px; background: #0f172a; color: #e5e7eb;
+  border-radius: 10px; margin-bottom: 16px;
+}
+.bs-config-logo {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 8px;
+  background: #000; flex-shrink: 0;
+}
+.bs-config-title { font-weight: 700; font-size: 14px; color: #fff; white-space: nowrap; }
+.bs-config-field { display: flex; align-items: center; gap: 8px; flex: 1; }
+.bs-config-label { font-size: 12px; color: #9ca3af; white-space: nowrap; }
+.bs-config-input {
+  padding: 6px 10px; border: 1px solid #374151; border-radius: 6px;
+  font-size: 13px; background: #1f2937; color: #e5e7eb; flex: 1; min-width: 200px;
+  font-family: monospace;
+}
+.bs-config-show {
+  width: 32px; height: 32px; border-radius: 6px; cursor: pointer;
+  border: 1px solid #374151; background: #1f2937; font-size: 14px;
+  display: grid; place-items: center;
+}
+
+/* Kanban Board */
+.bs-kanban-topbar {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px; position: relative;
+}
+.bs-kanban-count { font-size: 13px; color: #6b7280; margin-left: auto; }
+.bs-filter-dropdown {
+  position: absolute; top: 100%; left: 0; z-index: 10;
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12); padding: 12px; display: flex; flex-direction: column; gap: 8px;
+  min-width: 180px;
+}
+.bs-filter-option { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+.bs-kanban-board { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+.bs-kanban-col {
+  background: #f3f4f6; border-radius: 8px; border: 1px solid #e5e7eb;
+  display: flex; flex-direction: column; min-height: 300px;
+}
+.bs-kanban-col-header {
+  padding: 10px 12px; border-bottom: 1px solid #e5e7eb;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.bs-kanban-col-header strong { font-size: 13px; color: #1f2937; }
+.bs-kanban-col-header small { font-size: 11px; color: #9ca3af; }
+.bs-kanban-empty { padding: 20px; text-align: center; font-size: 13px; color: #9ca3af; }
+.bs-kanban-card {
+  margin: 6px 8px; padding: 10px 12px; background: #fff; border: 1px solid #e5e7eb;
+  border-radius: 8px; cursor: pointer; transition: box-shadow .15s;
+}
+.bs-kanban-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.1); }
+.bs-kanban-card.bs-card-has-red { border-left: 3px solid #ef4444; }
+.bs-kanban-card-title-wrap { display: flex; align-items: center; gap: 6px; }
+.bs-kanban-card-title { font-weight: 600; font-size: 13px; color: #1f2937; margin-bottom: 2px; }
+.bs-kanban-card-meta { font-size: 11px; color: #9ca3af; }
+.bs-kanban-card-dates { font-size: 11px; color: #6b7280; margin: 4px 0; }
+
+/* Alert badge on card */
+.bs-alert-badge {
+  display: inline-block; padding: 1px 6px; border-radius: 10px;
+  font-size: 10px; font-weight: 700; background: #fef2f2; color: #dc2626;
+  border: 1px solid #fca5a5; line-height: 1.4; cursor: help;
+}
+.bs-alert-badge-header {
+  padding: 3px 10px; border-radius: 12px; font-size: 12px;
+}
+
+/* Restriction Dots */
+.bs-dots { display: flex; gap: 4px; margin-top: 6px; }
+.bs-dot {
+  width: 20px; height: 20px; border-radius: 50%; font-size: 9px; font-weight: 700;
+  display: grid; place-items: center; color: #fff;
+}
+
+/* Alert Banner */
+.bs-alert-banner {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; border-radius: 8px; margin-bottom: 12px;
+  background: #fffbeb; border: 1px solid #fde68a; color: #92400e;
+}
+.bs-alert-banner-critical { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+.bs-alert-banner-icon { font-size: 18px; }
+.bs-alert-banner-text { font-weight: 600; font-size: 14px; white-space: nowrap; }
+.bs-alert-banner-detail { font-size: 12px; opacity: .8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Field Master View */
+.bs-field-header { margin-bottom: 16px; }
+.bs-field-header h2 { margin: 0; font-size: 18px; color: #1f2937; }
+.bs-field-subtitle { margin: 4px 0 0; font-size: 13px; color: #6b7280; }
+.bs-field-empty {
+  padding: 40px; text-align: center; background: #f9fafb; border: 1px solid #e5e7eb;
+  border-radius: 8px; color: #6b7280;
+}
+.bs-field-list { display: flex; flex-direction: column; gap: 12px; }
+.bs-field-card {
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px;
+  background: #fff;
+}
+.bs-field-card-header { display: flex; align-items: center; gap: 8px; font-size: 15px; margin-bottom: 4px; }
+.bs-field-card-meta { font-size: 13px; color: #6b7280; margin-bottom: 6px; }
+.bs-field-actions { display: flex; gap: 8px; margin-top: 12px; }
+.bs-field-gaveta { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.bs-field-report {
+  width: 100%; min-height: 60px; border: 1px solid #e5e7eb; border-radius: 6px;
+  padding: 8px; font-size: 14px; resize: vertical; font-family: inherit;
+}
+.bs-field-ppc {
+  margin-top: 20px; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0;
+  border-radius: 8px;
+}
+.bs-field-ppc h3 { margin: 0 0 8px; font-size: 14px; color: #166534; }
+.bs-ppc-bar {
+  height: 20px; background: #e5e7eb; border-radius: 10px; overflow: hidden;
+}
+.bs-ppc-fill { height: 100%; background: #22c55e; border-radius: 10px; transition: width .3s; }
+.bs-field-ppc p { font-size: 13px; color: #166534; margin: 8px 0 0; }
+
+/* Tabs */
+.bs-tabs {
+  display: flex; gap: 4px; margin-bottom: 16px;
+  background: #f3f4f6; border-radius: 8px; padding: 4px;
+  border: 1px solid #e5e7eb;
+}
+.bs-tab {
+  flex: 1; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: none; background: none; color: #6b7280; transition: all .15s;
+  font-family: inherit;
+}
+.bs-tab:hover { color: #1f2937; }
+.bs-tab.active { background: #fff; color: #1f2937; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+
+/* Dropzone */
+.bs-dropzone {
+  border: 2px dashed #d1d5db; border-radius: 12px; padding: 40px;
+  text-align: center; cursor: pointer; transition: all .2s;
+  background: #f9fafb; margin: 20px 0;
+}
+.bs-dropzone:hover, .bs-dropzone.dragover { border-color: #2563eb; background: #eff6ff; }
+.bs-dropzone p { margin: 8px 0; font-size: 14px; color: #6b7280; }
+.bs-dropzone-icon { font-size: 40px; }
+
+/* Container principal */
+.bs-container {
+  padding: 20px; max-width: 1200px; margin: 0 auto;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .bs-restrictions-grid { grid-template-columns: 1fr; }
+  .bs-modal { width: 95%; max-height: 95vh; }
+  .bs-modal-wide { width: 95%; }
+  .bs-kanban-board { grid-template-columns: 1fr; overflow: visible; }
+  .bs-kanban-col { min-height: auto; }
+  .bs-config { flex-direction: column; align-items: stretch; }
+  .bs-config-field { flex-direction: column; }
+  .bs-field-actions { flex-direction: column; }
+}

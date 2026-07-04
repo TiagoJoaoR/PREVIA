@@ -1,3 +1,5 @@
+import { getUser } from "./login";
+
 export interface ShellHandles {
   viewportEl: HTMLElement;
   ganttEl: HTMLElement;
@@ -31,7 +33,62 @@ export function buildShell(root: HTMLElement): ShellHandles {
   importBtn.title = "Importar IFC";
   importBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>`;
   importBtn.appendChild(fileInput);
-  bar.append(brand, importBtn);
+
+  const lookaheadBtn = document.createElement("button");
+  lookaheadBtn.className = "btn-lookahead";
+  lookaheadBtn.id = "btn-lookahead";
+  lookaheadBtn.title = "PRÉVIA";
+  lookaheadBtn.innerHTML = `<svg viewBox="0 0 24 24" width="18" height="18"><text x="12" y="18" text-anchor="middle" font-family="'Sifonn Basic Outline', 'Sifonn Basic', sans-serif" font-size="22" fill="white">P</text></svg>`;
+  lookaheadBtn.addEventListener("click", () => {
+    const evt = new CustomEvent("open-lookahead", { bubbles: true });
+    lookaheadBtn.dispatchEvent(evt);
+  });
+
+  // ---- menu do utilizador ----
+  const userMenu = el("div", "user-menu");
+  const userToggle = el("button", "user-toggle") as HTMLButtonElement;
+  const u = getUser();
+  const initial = u?.name?.charAt(0).toUpperCase() ?? "?";
+  userToggle.innerHTML = `<span class="user-avatar">${initial}</span><span class="user-name">${u?.name ?? "Utilizador"}</span>`;
+  userMenu.appendChild(userToggle);
+
+  const userDropdown = el("div", "user-dropdown");
+  userDropdown.hidden = true;
+  userDropdown.innerHTML = `
+    <div class="user-dropdown-header">
+      <span class="user-dropdown-name">${u?.name ?? "—"}</span>
+      <span class="user-dropdown-email">${u?.email ?? "—"}</span>
+    </div>
+    <button class="user-dropdown-item" id="user-settings-btn">⚙ Definições</button>
+    <button class="user-dropdown-item user-dropdown-logout" id="user-logout-btn">🚪 Sair</button>
+  `;
+  userMenu.appendChild(userDropdown);
+
+  userToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    userDropdown.hidden = !userDropdown.hidden;
+  });
+  document.addEventListener("click", () => { userDropdown.hidden = true; }, { capture: true });
+  userDropdown.addEventListener("click", (e) => e.stopPropagation());
+
+  bar.append(brand, importBtn, lookaheadBtn, userMenu);
+
+  // ---- banner PRÉVIA (canto superior direito) ----
+  const logoBanner = el("div", "logo-banner");
+  const logoSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  logoSvg.setAttribute("viewBox", "0 0 120 28");
+  logoSvg.setAttribute("width", "120");
+  logoSvg.setAttribute("height", "28");
+  const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  textEl.setAttribute("x", "4");
+  textEl.setAttribute("y", "21");
+  textEl.setAttribute("font-family", "'Sifonn Basic Outline', 'Sifonn Basic', sans-serif");
+  textEl.setAttribute("font-size", "18");
+  textEl.setAttribute("fill", "white");
+  textEl.setAttribute("letter-spacing", "3");
+  textEl.textContent = "PRÉVIA";
+  logoSvg.appendChild(textEl);
+  logoBanner.appendChild(logoSvg);
 
   // ---- painel esquerdo: árvore ----
   const left = floatPanel("MODELO IFC", "panel-left", "🗂");
@@ -58,6 +115,7 @@ export function buildShell(root: HTMLElement): ShellHandles {
   root.append(
     viewportEl,
     bar,
+    logoBanner,
     left.panel, left.chip,
     right.panel, right.chip,
     bottom.panel, bottom.chip,
